@@ -15,9 +15,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        backgroundColor: Colors.white,
         scaffoldBackgroundColor: Colors.white,
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: Colors.blue,
+          backgroundColor: Colors.white,
+        ),
       ),
       home: const PinCodeVerificationScreen(
         phoneNumber: "+8801376221100", // a random number, please don't call xD
@@ -103,7 +105,7 @@ class _PinCodeVerificationScreenState extends State<PinCodeVerificationScreen> {
               ),
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 30.0, vertical: 8),
+                const EdgeInsets.symmetric(horizontal: 30.0, vertical: 8),
                 child: RichText(
                   text: TextSpan(
                     text: "Enter the code sent to ",
@@ -236,7 +238,7 @@ class _PinCodeVerificationScreenState extends State<PinCodeVerificationScreen> {
               ),
               Container(
                 margin:
-                    const EdgeInsets.symmetric(vertical: 16.0, horizontal: 30),
+                const EdgeInsets.symmetric(vertical: 16.0, horizontal: 30),
                 child: ButtonTheme(
                   height: 50,
                   child: TextButton(
@@ -249,7 +251,7 @@ class _PinCodeVerificationScreenState extends State<PinCodeVerificationScreen> {
                         setState(() => hasError = true);
                       } else {
                         setState(
-                          () {
+                              () {
                             hasError = false;
                             snackBar("OTP Verified!!");
                           },
